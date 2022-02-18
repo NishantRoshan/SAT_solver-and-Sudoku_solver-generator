@@ -17,10 +17,12 @@ void solve(int tc)
   vector<vector<int>>v;
   for(int i=0;i<nc;i++){
       vector<int>v1;
-      int t;
-      if(t)
-      v1.push_back(t);
-      else
+      int c=1;
+      while(c){
+          cin>>c;
+          if(c)
+          v1.push_back(c);
+      }
       v.push_back(v1);
   }
   std::sort(v.begin(),v.end(),[](const vector<int>&a, const vector<int>&b){return a.size()<b.size();})

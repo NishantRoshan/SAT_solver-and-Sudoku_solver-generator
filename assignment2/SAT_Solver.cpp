@@ -1,3 +1,4 @@
+#include "dimacs_to_vector.h"
 #include<bits/stdc++.h>
 using namespace std;
  

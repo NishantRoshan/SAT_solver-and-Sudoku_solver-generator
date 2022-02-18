@@ -36,11 +36,6 @@ pair<int,vector<vector<int>>> extract(string file){
         }
         v.push_back(v1);
     }
-    // for(auto l:v){
-    //     for(auto i:l){
-    //         cout<<i<<" ";
-    //     }
-    //     cout<<endl;
-    // }
+    
     return {vari,v};
 }

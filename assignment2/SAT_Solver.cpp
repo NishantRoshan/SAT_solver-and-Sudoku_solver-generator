@@ -11,6 +11,14 @@ const long long INF=1e18;
 const int32_t M=1e9+7;
 const int32_t MM=998244353;
 const int32_t N=1e5+1;
+
+vector dpll(vector<int>v,vector<int>val,vector<pair<int,int>>sign){
+    
+
+
+
+
+}
 void solve(int tc)
 { int n,nc,f=0;
   cin>>n>>nc;
@@ -38,22 +46,38 @@ void solve(int tc)
       v.push_back(v1);
   }
   std::sort(v.begin(),v.end(),[](const vector<int>&a, const vector<int>&b){return a.size()<b.size();})
-  for(int i=0;i<nc && v[i].size()<=1;i++){
-      if(v[i].size()==0)
-      v.erase(v.begin()+i);
-      if(v[i].size()==1){
-          int t=v[i][0];
-          if(t>0 && v[t-1]!=0)
-          v[t-1]=1;
-          else if(t<0 && v[t-1]!=1)
-          v[t-1]=0;
-          else
-          f=1;
-          v.erase(v.begin()+i);
+  for(int i=0;i<n && v.size()<=1;i++){
+      int t=v[i][0];
+      if(t>0 && val[t-1]!=0)
+      val[t-1]==1;
+      else if(t<0 && val[-t-1]!=1)
+      val[-t-1]==0;
+      else
+      f=1;
+  }
+  for
+  if(f==1)
+  cout<<"Unsatisfiable"<<endl;
+  else{
+  for(int i=0;i<n && f==0;i++){
+      if(sign[i].first==1 && sign[i].second==0)
+          val[i]=1;
+      if(sign[i].first==0 && sign[i].second==1)
+          val[i]=0;
+  }
+  for(int i=0;i<nc;i++){
+      for(int j=0;j<v[i].size();j++){
+          int t=v[i][j];
+          if(t>0 && val[i][j]==1){
+              v.erase(v.begin()+i);
+              i--;
+              break;
+          }
       }
   }
-  for()
+    dpll(v,val,sign);
  }
+}
 int32_t main()
 {
     ios_base::sync_with_stdio(false);

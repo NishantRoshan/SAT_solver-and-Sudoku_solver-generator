@@ -13,11 +13,20 @@ const int32_t MM=998244353;
 const int32_t N=1e5+1;
 
 vector dpll(vector<int>v,vector<int>val,vector<pair<int,int>>sign){
-    
-
-
-
-
+       for(int i=0;i<sign.size();i++){
+           sign[i].first=0;
+           sign[i].second=0;
+       }       
+       for(int i=0;i<v.size();i++){
+           for(int j=0;j<v[i].size();j++){
+               int k=v[i][j];
+               if(v[i][j]>0)
+               sign[k-1].first++;
+               else
+               sign[-k-1].second++;
+           }
+       }
+       
 }
 void solve(int tc)
 { int n,nc,f=0;
@@ -60,15 +69,15 @@ void solve(int tc)
   cout<<"Unsatisfiable"<<endl;
   else{
   for(int i=0;i<n && f==0;i++){
-      if(sign[i].first==1 && sign[i].second==0)
+      if(sign[i].second==0)
           val[i]=1;
-      if(sign[i].first==0 && sign[i].second==1)
+      else if(sign[i].first==0)
           val[i]=0;
   }
-  for(int i=0;i<nc;i++){
+  for(int i=0;i<v.size();i++){
       for(int j=0;j<v[i].size();j++){
           int t=v[i][j];
-          if(t>0 && val[i][j]==1){
+          if((t>0 && val[t-1]==1) || (t<0 && val[-t-1]==0)){
               v.erase(v.begin()+i);
               i--;
               break;

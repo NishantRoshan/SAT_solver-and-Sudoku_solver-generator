@@ -1,0 +1,8 @@
+Our code aims to use DPLL algorithm for solving the set of clauses.
+First we convert the given cnf file into a vector of vectors, each small vector will represent a single clause.
+All the clauses containing single literals will have a fixed boolean value, so they are set at the first.
+Then all the literals which appear only as either with positive polarity or only as negative polarity were set so that the clauses containg them become true.
+Then all these clauses which become true after the above two operations are deleted from the vector of vectors.
+Then DPLL function is called which will assign value to the remaining literals and move ahead for there. If we satisfy the given constraints in the path followed, we will return the model. 
+Else we will backtrack from the last step as soon as we get False and check for the other possible value of the last literal. In this way, we will check all the possible combinations and return "Unsatisfiable" if none satisfies the constraints given. 
+Unfortunately, we couldn't figure out how to implement the DPLL algorithm, so we have left our code incomplete and it won't give any output.
